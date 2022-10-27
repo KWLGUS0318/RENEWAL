@@ -1,0 +1,312 @@
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box
+}
+
+// 가로 스크롤 삭제
+body {
+  overflow-y: hidden;
+}
+
+$hundredpx : 100px;
+$margintopypixel: 20px;
+$hunredwidthvw: 100vw;
+$hunredpercent: 100%;
+$sevenpercent: 70%;
+$radius : 20px;
+// Colors
+$black: #000;
+$white: #fff;
+$gray: #B5B4B4;
+$lightgray : #CDCDCD;
+
+// 가운데 정렬 
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  @include center();
+  overflow: hidden;
+  width: $hunredwidthvw;
+  height: 1080px;
+
+  @media (max-width: 800px) {
+    width: $hunredwidthvw;
+
+  }
+
+
+
+}
+
+.container {
+  width: 80vw;
+  height: 1080px;
+  overflow: hidden;
+
+  @media (max-width: 650px) {
+    width: $hunredwidthvw;
+  }
+
+  @media (max-width: 800px) {
+    width: $hunredwidthvw;
+  }
+}
+
+// 헤더 마크업
+header {
+  width: $hunredpercent;
+  height: 8vh;
+  display: flex;
+  justify-content: right;
+
+  &>ul {
+    width: 30%;
+    height: inherit;
+    @include center();
+    position: absolute;
+    right: 0;
+
+    @media (max-width: 800px) {
+      width: 60%;
+    }
+
+
+
+    &>li {
+      @include center();
+      color: $lightgray;
+      width: calc($hunredpercent/4);
+      height: 80%;
+      border-right: 1px solid $lightgray;
+      font-size: 1rem;
+      cursor: pointer;
+
+      @media (max-width: 650px) {
+        width: calc(60vw/4);
+        height: 50%;
+        font-size: 0.5rem;
+
+      }
+
+    }
+  }
+}
+
+// 로고이미지 정렬
+.logo-img {
+  width: $hunredpercent;
+  height: 200px;
+  z-index: 1;
+  margin-top: $margintopypixel;
+  @include center();
+
+  @media (max-width: 800px) {
+    width: 100vw;
+    top: 100px;
+    z-index: 1;
+
+  }
+
+  &>img {
+    width: 30%;
+    height: 60%;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 650px) {
+      width: 80%;
+      position: relative;
+      z-index: 1
+    }
+
+    @media (max-width: 800px) {
+      width: 70%;
+    }
+  }
+}
+
+//햄버거 바 
+.hamberger-bar {
+  width: 60%;
+  height: inherit;
+  position: absolute;
+  left: 0;
+
+  &>div {
+    width: 60%;
+    visibility: hidden;
+    position: relative;
+    left: -20px;
+
+    @media (max-width:680px) {
+      visibility: visible;
+      cursor: pointer;
+      width: 140px;
+      height: $hunredpercent;
+    }
+
+    &>ul {
+      width: $hunredpercent;
+      height: $hunredpercent;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      transform: translate(25%, 25%);
+ 
+    
+      &>li {
+        width: 70px;
+        height: 10px;
+        border-radius: $radius;
+        background-color: #333;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+
+.hamberger-menu {
+  display: none;
+
+  @media (max-width:650px) {
+    width: $margintopypixel*20;
+    height: 92vh;
+    border: 1px solid $gray;
+    background-color: $white;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 80px;
+
+    &>div {
+      width: $hunredpercent;
+      height: $hunredpercent;
+      display: flex;
+      flex-flow: column;
+
+      &>ul {
+        width: $hunredpercent;
+        height: calc($hunredpercent/3);
+        border: 1px solid $black;
+      }
+    }
+
+
+  }
+}
+
+.input {
+  width: $hunredpercent;
+  height: 10%;
+  margin-top: $margintopypixel;
+  @include center();
+
+  &>div {
+    width: 60%;
+    height: calc($hunredpercent/2);
+    border-radius: $radius;
+    border: 1px dotted $gray;
+    display: flex;
+
+    @media (max-width:800px) {
+      width: calc($hunredpercent/1.25)
+    }
+
+    &>input {
+      font-size: 1.5rem;
+      width: 85%;
+      margin-left: 5%;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &>img {
+      object-fit: contain;
+      width: 10%;
+      height: 80%;
+      padding-top: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.ballon {
+  display: none;
+  position: absolute;
+  width: 48%;
+  z-index: 1;
+  height: 300px;
+  left: 26%;
+  top: 40%;
+  border: none;
+  border-right: 1px dotted $gray;
+  border-left: 1px dotted$gray;
+  border-bottom: 1px solid $gray;
+  background-color: $white;
+  color: white;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+
+  @media (max-width:650px) {
+    left: 50px;
+    width: calc($hunredpercent/1.25);
+  }
+}
+
+
+.selec-menu {
+  margin-top: $margintopypixel;
+  width: $hunredpercent;
+  height: 40%;
+  display: flex;
+  flex-flow: column;
+
+  &>ul {
+    width: $hunredpercent;
+    height: calc($hunredpercent/2);
+    @include center();
+    list-style-type: none;
+
+
+    &>li {
+      width: ($sevenpercent/4);
+      height: $hunredpercent;
+      @include center();
+
+      @media (max-width:800px) {
+        width: $hunredpercent;
+      }
+
+      &>img {
+        height: $sevenpercent;
+        object-fit: contain;
+        cursor: pointer;
+
+        @media (max-width:800px) {
+          width: 80%;
+        }
+      }
+
+    }
+  }
+
+  ;
+}
+
+
+.off {
+  display: none;
+}
+
+.on {
+  display: block;
+}
