@@ -10,7 +10,7 @@ body {
 }
 
 $hundredpx : 100px;
-$margintopypixel: 20px;
+$margintopypixel: 40px;
 $hunredwidthvw: 100vw;
 $hunredpercent: 100%;
 $sevenpercent: 70%;
@@ -30,9 +30,7 @@ $lightgray : #CDCDCD;
 
 #root {
   @include center();
-  overflow: hidden;
   width: $hunredwidthvw;
-  height: 1080px;
 
   @media (max-width: 800px) {
     width: $hunredwidthvw;
@@ -45,8 +43,8 @@ $lightgray : #CDCDCD;
 
 .container {
   width: 80vw;
-  height: 1080px;
   overflow: hidden;
+  height: 1080px;
 
   @media (max-width: 650px) {
     width: $hunredwidthvw;
@@ -59,32 +57,33 @@ $lightgray : #CDCDCD;
 
 // 헤더 마크업
 header {
+  position: fixed;
   width: $hunredpercent;
   height: 8vh;
   display: flex;
   justify-content: right;
-
+  z-index: 2;
+  background-color: $white;
   &>ul {
     width: 30%;
     height: inherit;
     @include center();
     position: absolute;
-    right: 0;
+    right: $hundredpx*2; top: -10px;
 
     @media (max-width: 800px) {
       width: 60%;
     }
 
-
-
     &>li {
       @include center();
       color: $lightgray;
       width: calc($hunredpercent/4);
-      height: 80%;
+      height: 88%;
       border-right: 1px solid $lightgray;
       font-size: 1rem;
       cursor: pointer;
+      background-color: $white;
 
       @media (max-width: 650px) {
         width: calc(60vw/4);

@@ -12,9 +12,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   width: 100vw;
-  height: 1080px;
 }
 @media (max-width: 800px) {
   #root {
@@ -24,8 +22,8 @@ body {
 
 .container {
   width: 80vw;
-  height: 1080px;
   overflow: hidden;
+  height: 1080px;
 }
 @media (max-width: 650px) {
   .container {
@@ -39,10 +37,13 @@ body {
 }
 
 header {
+  position: fixed;
   width: 100%;
   height: 8vh;
   display: flex;
   justify-content: right;
+  z-index: 2;
+  background-color: #fff;
 }
 header > ul {
   width: 30%;
@@ -51,7 +52,8 @@ header > ul {
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 0;
+  right: 200px;
+  top: -10px;
 }
 @media (max-width: 800px) {
   header > ul {
@@ -64,10 +66,11 @@ header > ul > li {
   justify-content: center;
   color: #CDCDCD;
   width: 25%;
-  height: 80%;
+  height: 88%;
   border-right: 1px solid #CDCDCD;
   font-size: 1rem;
   cursor: pointer;
+  background-color: #fff;
 }
 @media (max-width: 650px) {
   header > ul > li {
@@ -81,7 +84,7 @@ header > ul > li {
   width: 100%;
   height: 200px;
   z-index: 1;
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +156,7 @@ header > ul > li {
 }
 @media (max-width: 650px) {
   .hamberger-menu {
-    width: 400px;
+    width: 800px;
     height: 92vh;
     border: 1px solid #B5B4B4;
     background-color: #fff;
@@ -178,7 +181,7 @@ header > ul > li {
 .input {
   width: 100%;
   height: 10%;
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,7 +241,7 @@ header > ul > li {
 }
 
 .selec-menu {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 100%;
   height: 40%;
   display: flex;
