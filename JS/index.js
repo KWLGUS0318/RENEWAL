@@ -1,6 +1,7 @@
 //행버거 메뉴
 const habergerbar = document.querySelector('.hamberger-bar')
 const habergermenu = document.querySelector('.hamberger-menu')
+const habergermenudiv = document.querySelector('.hamberger-menu >ul')
 console.log(habergerbar, habergermenu)
 
 const block = 'block'
@@ -26,7 +27,7 @@ habergerbar.addEventListener('click', function () {
     habergerli[1].style.marginTop = -15 + pixel;
     habergerli[1].style.transition = '1s';
     habergerli[1].style.transform = 'rotate(46deg)';
-    
+    document.body.style.opacity = "85%"
 
   } else {
  
@@ -64,4 +65,6 @@ input.addEventListener('mouseover', function () {
   function search (){
     location.href= "./HTML/category.html"
   }
+
+
 

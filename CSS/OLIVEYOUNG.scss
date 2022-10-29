@@ -12,7 +12,7 @@ body {
 $hundredpx : 100px;
 $margintopypixel: 40px;
 $hunredwidthvw: 100vw;
-$hunredpercent: 100%;
+$hundredpercent: 100%;
 $sevenpercent: 70%;
 $radius : 20px;
 // Colors
@@ -20,6 +20,8 @@ $black: #000;
 $white: #fff;
 $gray: #B5B4B4;
 $lightgray : #CDCDCD;
+
+$youtubeColor : #FC231B;
 
 // 가운데 정렬 
 @mixin center {
@@ -43,7 +45,6 @@ $lightgray : #CDCDCD;
 
 .container {
   width: 80vw;
-  overflow: hidden;
   height: 1080px;
 
   @media (max-width: 650px) {
@@ -58,27 +59,30 @@ $lightgray : #CDCDCD;
 // 헤더 마크업
 header {
   position: fixed;
-  width: $hunredpercent;
+  width: $hundredpercent;
   height: 8vh;
   display: flex;
   justify-content: right;
   z-index: 2;
   background-color: $white;
+
   &>ul {
     width: 30%;
     height: inherit;
     @include center();
     position: absolute;
-    right: $hundredpx*2; top: -10px;
+    right: $hundredpx*2;
+    top: -10px;
 
     @media (max-width: 800px) {
       width: 60%;
+      right: 0;
     }
 
     &>li {
       @include center();
       color: $lightgray;
-      width: calc($hunredpercent/4);
+      width: calc($hundredpercent/4);
       height: 88%;
       border-right: 1px solid $lightgray;
       font-size: 1rem;
@@ -98,7 +102,7 @@ header {
 
 // 로고이미지 정렬
 .logo-img {
-  width: $hunredpercent;
+  width: $hundredpercent;
   height: 200px;
   z-index: 1;
   margin-top: $margintopypixel;
@@ -146,18 +150,18 @@ header {
       visibility: visible;
       cursor: pointer;
       width: 140px;
-      height: $hunredpercent;
+      height: $hundredpercent;
     }
 
     &>ul {
-      width: $hunredpercent;
-      height: $hunredpercent;
+      width: $hundredpercent;
+      height: $hundredpercent;
       list-style-type: none;
       display: flex;
       flex-direction: column;
       transform: translate(25%, 25%);
- 
-    
+
+
       &>li {
         width: 70px;
         height: 10px;
@@ -174,8 +178,9 @@ header {
   display: none;
 
   @media (max-width:650px) {
-    width: $margintopypixel*20;
-    height: 92vh;
+    overflow-y: scroll;
+    width: $margintopypixel*10;
+    height: 200vh;
     border: 1px solid $gray;
     background-color: $white;
     z-index: 2;
@@ -184,15 +189,22 @@ header {
     top: 80px;
 
     &>div {
-      width: $hunredpercent;
-      height: $hunredpercent;
+      width: $hundredpercent;
+      height: 230vh;
       display: flex;
       flex-flow: column;
 
       &>ul {
-        width: $hunredpercent;
-        height: calc($hunredpercent/3);
-        border: 1px solid $black;
+        width: $hundredpercent;
+        height: 300px;
+
+        &:nth-child(3) {
+          height: 50vh;
+        }
+
+        &:nth-child(3) {
+          height: 50vh;
+        }
       }
     }
 
@@ -201,20 +213,20 @@ header {
 }
 
 .input {
-  width: $hunredpercent;
+  width: $hundredpercent;
   height: 10%;
   margin-top: $margintopypixel;
   @include center();
 
   &>div {
     width: 60%;
-    height: calc($hunredpercent/2);
+    height: calc($hundredpercent/2);
     border-radius: $radius;
     border: 1px dotted $gray;
     display: flex;
 
     @media (max-width:800px) {
-      width: calc($hunredpercent/1.25)
+      width: calc($hundredpercent/1.25)
     }
 
     &>input {
@@ -226,6 +238,11 @@ header {
       &:focus {
         outline: none;
       }
+    }
+
+    @media (max-width : 650px) {
+      position: relative;
+      top: -50px;
     }
 
     &>img {
@@ -257,32 +274,35 @@ header {
 
   @media (max-width:650px) {
     left: 50px;
-    width: calc($hunredpercent/1.25);
+    width: calc($hundredpercent/1.25);
   }
 }
 
 
 .selec-menu {
-  margin-top: $margintopypixel;
-  width: $hunredpercent;
+  width: $hundredpercent;
   height: 40%;
   display: flex;
   flex-flow: column;
 
   &>ul {
-    width: $hunredpercent;
-    height: calc($hunredpercent/2);
+    width: $hundredpercent;
+    height: calc($hundredpercent/2);
     @include center();
     list-style-type: none;
 
+    @media (max-width:650px) {
+      position: relative;
+      bottom: 80px;
+    }
 
     &>li {
       width: ($sevenpercent/4);
-      height: $hunredpercent;
+      height: $hundredpercent;
       @include center();
 
       @media (max-width:800px) {
-        width: $hunredpercent;
+        width: $hundredpercent;
       }
 
       &>img {
@@ -301,7 +321,7 @@ header {
   ;
 }
 
-
+//on / off 작동
 .off {
   display: none;
 }
@@ -309,3 +329,199 @@ header {
 .on {
   display: block;
 }
+
+//로고 이미지, 로그인 / 회원가입
+
+.logoimg,
+.personal-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width:1920px) {
+    display: none;
+  }
+
+  @media (max-width:650px) {
+    width: $hundredpercent;
+    height: calc($hundredpercent/3);
+    display: flex;
+    align-items: center;
+
+    &>img {
+      transform: translate(0%, 20%);
+      width: calc($hundredpercent/2);
+    }
+
+    &>button {
+      width: 48%;
+      height: calc($hundredpercent/1.5);
+      border-radius: $radius;
+      border: 1px solid $gray;
+      background-color: #fff;
+
+      background: {
+        image: linear-gradient(45deg, $black, 50%, transparent 50%);
+        position: 100%;
+        size: 400%;
+      }
+
+      transition: background 300ms ease-in-out;
+
+      &:hover {
+        background-position: 0;
+        color: #FFF;
+      }
+    }
+
+  }
+
+
+}
+
+.sns-community {
+
+  @media (max-width:1920px) {
+    display: none;
+  }
+
+  @media (max-width:650px) {
+    width: $hundredpercent;
+    height: calc($hundredpercent/3);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+    &>button {
+      width: 48%;
+      height: calc($hundredpercent/1.5);
+      border-radius: $radius;
+      border: 1px solid $gray;
+      cursor: pointer;
+      $instgramColor: (#4C59CE, #8F2FBB, #962ABA, #CB2C7C, #E25246);
+      $index: 0;
+      color: $white;
+
+      // 인스타그램
+      &:nth-child(1) {
+        background-image: linear-gradient(90deg, $instgramColor(0) 0%, #CB2C7C 19.56%, #962ABA 42.31%, #8F2FBB 65.52%, #4C59CE 87.36%);
+
+
+        background: {
+          image: linear-gradient(45deg, background-image, 50%, transparent 50%);
+          position: 100%;
+          size: 400%;
+        }
+
+
+        &:hover {
+          transition: background 300ms ease-out;
+          background-position: 0;
+          color: #FFF;
+        }
+      }
+
+      // 유튜브
+      &:nth-child(2) {
+        background-image: linear-gradient(90deg, $youtubeColor -5.1%, rgba(235, 23, 23, 1.849594) 44.51%, rgba(235, 70, 70, 0.5625) 100.6%, rgba(252, 0, 0, 0) 100.61%);
+
+        background: {
+          image: linear-gradient(45deg, background-image, 50%, transparent 50%);
+          position: 100%;
+          size: 400%;
+        }
+
+
+        &:hover {
+          transition: background 300ms ease-out;
+          background-position: 0;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+@mixin sns {
+
+  &:hover {
+    transition: background 300ms ease-out;
+    background-position: 0;
+    color: #FFF;
+  }
+}
+
+
+.mypage {
+  display: none;
+
+  @media (max-width:650px) {
+    display: block;
+    width: $hundredpercent;
+    height: calc($hundredpercent/2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &>div {
+      width: calc($hundredpercent/5);
+      height: $hundredpercent;
+      border-radius: $radius;
+
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+
+      &>div:nth-child(1) {
+        height: 60%;
+        @include center();
+      }
+
+      &>div:nth-child(2) {
+        height: 40%;
+        @include center();
+        font-size: 0.8rem;
+        font-weight: 1800;
+
+      }
+
+    }
+  }
+}
+
+.size {
+  width: $hundredpercent;
+  justify-content: space-around;
+}
+
+
+//카테고리 커뮤니티
+
+.category {
+  width: $hundredpercent;
+  height: $hundredpercent;
+
+  &>div:nth-child(1) {
+    width: $hundredpercent;
+    height: calc($hundredpercent/8);
+    display: flex;
+
+    &>button {
+      width: calc($hundredpercent/2);
+      height: $hundredpercent;
+      border: none;
+      background-color:rgb(255, 244, 244);
+      &:focus{
+        border-top: 1px solid $black;
+        border-left: 1px solid $black;
+        border-right: 1px solid $black;
+      }
+   
+    }
+  }
+}
+
+
